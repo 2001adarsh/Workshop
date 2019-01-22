@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<cmath>
+#include<fstream>
+
+using namespace std;
+int main()
+{
+    int n;
+    ifstream fin;
+    ofstream fout;
+    double test_marks[100];
+    double sum, percentage;
+    string firstname , lastname;
+
+    fin.open("test.txt");
+    fout.open("test.txt");
+
+    cout<<"Processing Data";
+    cin>>firstname>>lastname;
+    fin >> firstname >> lastname;
+    fout<<"Student Name:"<<firstname <<" " << lastname <<endl;
+    cin>>n;
+    fin>>n;
+    fout <<"No. of papers: " <<n<<endl;
+    for(int i=0; i<n; i++)
+    {   cin>>test_marks[i];
+        fin>> test_marks[i];
+        sum+=test_marks[i];
+    }
+    fout << "Test marks are: "<< setw(6);
+    for(int i=0;i<n; i++)
+        fout<< test_marks[i]<<setw(6);
+    fout << endl;
+
+    percentage=sum/n;
+
+    fout<< "Percentage : " << percentage <<"%d";
+
+    fin.close();
+    fout.close();
+
+    return 0;
+}
